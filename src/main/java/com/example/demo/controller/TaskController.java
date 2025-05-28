@@ -11,7 +11,7 @@ import java.util.List;
 @RestController
 public class TaskController {
 
-    @Autowired // Зависимости подтягиваются автоматический
+    @Autowired // Зависимости подтягиваются автоматически
     private TaskRepository taskRepository;
 
 
@@ -32,7 +32,7 @@ public class TaskController {
     }
 
     @PutMapping("/tasks/{id}")
-    public Task update(@PathVariable long id, @RequestBody Task task) {//редактирование записи по id
+    public Task update(@PathVariable long id, @RequestBody Task task) {
         task.setId(id);
         return taskRepository.save(task);
     }
