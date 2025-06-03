@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="com.example.demo.service.impl.UserServiceImplTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-05-28T10:48:40.595Z" hostname="assyl-lenovo" time="0.939">
+  <properties/>
+  <testcase name="register_shouldEncodePasswordAndSaveUser()" classname="com.example.demo.service.impl.UserServiceImplTest" time="0.939"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>

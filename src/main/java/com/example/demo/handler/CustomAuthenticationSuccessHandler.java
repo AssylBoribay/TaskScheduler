@@ -16,13 +16,11 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
     public void onAuthenticationSuccess(HttpServletRequest request,
                                         HttpServletResponse response,
                                         Authentication authentication) throws IOException {
-        handle(request, response, authentication);
+        handle(response);
         clearAuthenticationAttribures(request);
     }
 
-    protected void handle(HttpServletRequest request,
-                          HttpServletResponse response,
-                          Authentication authentication) throws IOException {
+    protected void handle(HttpServletResponse response) throws IOException {
         response.setStatus(HttpStatus.OK.value());
         response.getWriter().flush();
         response.getWriter().close();
