@@ -22,25 +22,29 @@ RESTful API-приложение для управления задачами.
 "./gradlew bootRun"
 
 Эндпоинты и примеры запросов
-1. POST /auth/register — регистрация в формате json, raw
+1. POST /auth/register — регистрация в формате json, raw.
+    
     Пример запроса: 
     {
     "login": "user",
     "password": "123456"
     }
-2. POST /login — авторизация в x-www-form-urlencoded
-3. GET /tasks — список задач
-4. POST /tasks — создать задачу
+2. POST /login — авторизация в x-www-form-urlencoded.
+3. GET /tasks — список задач.
+4. POST /tasks — создать задачу.
+    
    Пример запроса:
    {
    "description": "example task",
    "date": "2025-06-20"
    }
-5. PATCH /tasks/{id} - обновление поля done
+5. PATCH /tasks/{id} - обновление поля done.
+
    Пример запроса:
    "done": "true"
-6. DELETE /tasks/{id} - удаление задачи по айди
-7. PUT /tasks/{id} - обновление тела задачи по айди
+6. DELETE /tasks/{id} - удаление задачи по айди.
+7. PUT /tasks/{id} - обновление тела задачи по айди.
+
    Пример запроса:
    {
    "description": "updated example task",
