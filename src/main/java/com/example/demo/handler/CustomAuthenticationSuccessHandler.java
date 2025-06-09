@@ -17,7 +17,7 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
                                         HttpServletResponse response,
                                         Authentication authentication) throws IOException {
         handle(response);
-        clearAuthenticationAttribures(request);
+        clearAuthenticationAttributes(request);
     }
 
     protected void handle(HttpServletResponse response) throws IOException {
@@ -27,7 +27,7 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
     }
 
 
-    protected void clearAuthenticationAttribures(HttpServletRequest request) {
+    protected void clearAuthenticationAttributes(HttpServletRequest request) {
         HttpSession session = request.getSession(false);
         if(session != null){
             session.removeAttribute(WebAttributes.AUTHENTICATION_EXCEPTION);
