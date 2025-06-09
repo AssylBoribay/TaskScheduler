@@ -1,9 +1,6 @@
 package com.example.demo.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Data;
 
 import java.time.LocalDate;
@@ -18,11 +15,8 @@ public class Task {
     private LocalDate date;
     private String description;
     private boolean done;
-    private Long userId;
 
-    public void setUser(User user) {
-        if (user != null) {
-            this.userId = user.getId();
-        }
-    }
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
 }

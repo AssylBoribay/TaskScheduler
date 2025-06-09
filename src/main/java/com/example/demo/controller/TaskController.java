@@ -28,8 +28,9 @@ public class TaskController {
     }
 
     @GetMapping("/tasks")
-   public List<Task> getAll() {
-        return taskRepository.findAll();
+    public List<Task> getTasksForCurrentUser() {
+        User currentUser = userService.getCurrentUser();
+        return taskRepository.findByUser(currentUser);
     }
 
     @GetMapping("/tasks/{id}")
