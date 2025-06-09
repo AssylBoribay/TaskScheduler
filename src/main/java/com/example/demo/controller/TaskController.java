@@ -22,8 +22,8 @@ public class TaskController {
 
     @PostMapping("/tasks")
     public Task create(@RequestBody Task task) {
-        User currentUser = userService.getCurrentUser();  // ← Получаем авторизованного юзера
-        task.setUser(currentUser);                        // ← Сохраняем в задачу
+        User currentUser = userService.getCurrentUser();  // Получаем авторизованного юзера
+        task.setUser(currentUser);                        // Сохраняем в задачу
         return taskRepository.save(task);
     }
 
@@ -39,9 +39,15 @@ public class TaskController {
     }
 
     @PutMapping("/tasks/{id}")
-    public Task update(@PathVariable long id, @RequestBody Task task) {
-        task.setId(id);
-        return taskRepository.save(task);
+    public Task update(@PathVariable Long id, @RequestBody Task updatedTask) {
+        Task existingTask = taskRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Task not found"));
+
+        existingTask.setDescription(updatedTask.getDescription());
+        existingTask.setDate(updatedTask.getDate());
+        existingTask.setDone(updatedTask.isDone());
+
+        return taskRepository.save(existingTask);
     }
 
     @DeleteMapping("/tasks/{id}")
